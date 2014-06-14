@@ -3,7 +3,8 @@
  */
 
 angular.module('peopleTracker.controllers', [])
-    .controller('EventListController',['$scope', '$rootScope', '$window', '$location', 'Events', function ($scope, $rootScope, $window, $location,Events) {
+    .controller('EventListController',['$scope', '$rootScope', '$window',
+                                       '$location', 'Events','Messaging', function ($scope, $rootScope, $window, $location,Events,Messaging) {
         $scope.slide = '';
         $rootScope.back = function() {
             $scope.slide = 'slide-right';
@@ -13,33 +14,15 @@ angular.module('peopleTracker.controllers', [])
             $scope.slide = 'slide-left';
             $location.url(path);
         }
-   //TODO: hard coded events, fetch from service
 
-    $scope.showDetail = function(eventId)
-    {
+      //  Messaging.publish("MyEvent");
 
-    };
+        $rootScope.subscribeToEvent = function (){
+            Messaging.subscribeToEvent("MyEvent");
+        };
 
-        Events.get()
-            .success(function(data){
-                $scope.events =data;
-            })
-  //  $scope.events  = [
-
-
-
-
-//        {
-//            name: "World Cup",
-//            Address: "10 Downing Street",
-//            Notes: "this is an awesome event",
-//            Location: "2222"
-//        },
-//        {
-//            name: "Glastonbury",
-//            Address: "Somewhere cool",
-//            Notes: "this is a festival",
-//            Location: "2222"
-//        }
-   // ];
+         Events.get()
+                .success(function(data){
+                    $scope.events =data;
+                })
 }]);
