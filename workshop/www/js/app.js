@@ -9,6 +9,6 @@ angular.module('peopleTracker', ['peopleTracker.controllers',
     'ngAnimate',
     'eventsService']).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/events', {templateUrl: './partials/eventlist.html', controller: 'EventListController'});
-    $routeProvider.when('/events/:eventId', {templateUrl: './partials/eventDetail.html', controller: 'EventListController'});
+    $routeProvider.when('/event/:eventId', {templateUrl: './partials/eventDetail.html', controller: 'EventListController'});
     $routeProvider.otherwise({redirectTo: '/events'});
 }]);
