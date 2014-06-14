@@ -39,11 +39,15 @@
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/partials \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/plugins \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/index.css \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/img/angelhack.png \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/img/logo.png \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/app.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/controllers \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/index.js \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/services \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/controllers/EventListController.js \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/services/events.js \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/services/messaging.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular-animate.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular-resource.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular-route.js \
