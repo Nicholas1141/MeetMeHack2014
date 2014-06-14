@@ -1,0 +1,47 @@
+[{
+  "attendees": [
+    [
+        {"id":1},
+        {"trackLocation":true},
+        {"checkedin": false},
+        {"name": "Angel Hack"}
+        ],
+   [
+    {"id":2},
+    {"trackLocation":true},
+    {"checkedin": false},
+    {"name": "Ninja Hack"}
+    ]
+  ],
+  "name": "Angel Hack",
+  "note": "this is my description",
+  "eventend": "14 June 2014",
+  "status": "active",
+  "longitude": 64.079526,
+  "latitude": -13.862221,
+  "Address":"Google Campus, London"
+},
+{
+  "attendees": [
+    [
+        {"id":1},
+        {"trackLocation":true},
+        {"checkedin": true},
+        {"name": "Brazil"}
+        ],
+    [
+    {"id":2},
+    {"trackLocation":true},
+    {"checkedin": true},
+    {"name": "Croatia"}
+    ]
+  ],
+  "name": "World Cup - Brazil vs Croatia",
+  "note": "We love World Cup",
+  "eventend": "12 June 2014",
+  "status": "active",
+  "longitude": 64.079526,
+  "latitude": -13.862221,
+  "address":"Google Campus London"
+}
+]
