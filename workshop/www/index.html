@@ -23,11 +23,17 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+       <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> !>
+
+       <!-- Bootstrap core CSS -->
+        <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap theme -->
+        <link href="../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+
         <meta name="msapplication-tap-highlight" content="no" />
         <title>Hello World</title>
     </head>
-    <body ng-controller="EventListController">
+    <body ng-controller="EventListController" >
         <div ng-view ng-class="slide"></div>
         <script type="text/javascript" src="cordova.js"></script>
         <script src="./lib/angular.min.js"></script>
@@ -36,11 +42,6 @@
         <script src="./lib/angular-animate.js"></script>
         <script src="./lib/angular-route.js"></script>
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-
-
-        <!-- Add custom CSS here -->
-        <link href="css/stylish-portfolio.css" rel="stylesheet">
 
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
