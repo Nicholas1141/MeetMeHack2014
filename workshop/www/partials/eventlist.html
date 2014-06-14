@@ -23,7 +23,7 @@
 
 <!--
     <accordion>
-        <accordion-group heading="{{event.name}}"  ng-repeat="event in events">
+        <accordion-group heading="{{event.name}}"  is-open="status.open" ng-repeat="event in events">
             <p>{{event.Address}}</p>
             <p>{{event.Notes}}</p>
             <button class="btn btn-default btn-sm" ng-click="go('/event/' + event.name)">Details</button>
