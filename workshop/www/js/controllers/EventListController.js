@@ -15,10 +15,10 @@ angular.module('peopleTracker.controllers', [])
             $location.url(path);
         }
 
-        Messaging.publishLocation();
+      //  Messaging.publish("MyEvent");
 
         $rootScope.subscribeToEvent = function (){
-            Messaging.subscribeToEvent();
+            Messaging.subscribeToEvent("MyEvent");
         };
 
          Events.get()

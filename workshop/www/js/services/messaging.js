@@ -9,14 +9,18 @@ angular.module('messagingService', [])
             subscribe_key : 'sub-c-a709d546-f3cd-11e3-928e-02ee2ddab7fe'
         });
 
-        function publish(location) {
+        function publish(eventId) {
             pubnub.publish({
-                channel : "hello_world",
-                message : "Hi."
+                channel : eventId,
+                message :{
+                     "subscriber" : "subscriberA",
+                    "latitude": 64.546456456,
+                    "longitude": -133.3535345
+                }
             })
         }
         return{
-            publishLocation:function(){
+            publish:function(){
                 publish();
             },
             subscribeToEvent:function(eventId){
