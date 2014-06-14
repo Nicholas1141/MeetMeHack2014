@@ -1,15 +1,10 @@
 <div>
-
-    <!--<ul ng-repeat="event in events">-->
-        <!--<a ng-click="go('/events/' + event.name)">{{ event.name }}</a>-->
-    <!--</ul>-->
-
     <h1>My Events</h1>
     <accordion>
         <accordion-group heading="{{event.name}}"  ng-repeat="event in events">
             <p>{{event.Address}}</p>
             <p>{{event.Notes}}</p>
-            <button class="btn btn-default btn-sm" ng-click="go('/events/' + event.name)">Details</button>
+            <button class="btn btn-default btn-sm" ng-click="go('/event/' + event.name)">Details</button>
         </accordion-group>
     </accordion>
 </div>
