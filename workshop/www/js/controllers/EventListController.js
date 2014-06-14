@@ -25,4 +25,7 @@ angular.module('peopleTracker.controllers', [])
                 .success(function(data){
                     $scope.events =data;
                 })
-}]);
+}])
+    .controller('MapCtrl', function ($scope) {
+        $scope.mapPin = 'No pin set yet';
+    });

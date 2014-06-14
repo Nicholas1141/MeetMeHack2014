@@ -21,9 +21,13 @@ bar-descriptor.xml
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/css/index.css
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/img/angelhack.png
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/img/logo.png
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/app.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/index.js
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/controllers/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/controllers/EventListController.js
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/directives/.DS_Store
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/directives/map_directive.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/services/events.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/services/messaging.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular-animate.js
@@ -32,6 +36,7 @@ bar-descriptor.xml
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular-touch.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular.min.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular.min.js.map
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/eventDetail.html
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/eventlist.html
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/plugins/jnext/auth.txt
