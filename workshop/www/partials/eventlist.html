@@ -1,10 +1,32 @@
-<div>
-    <h1>My Events</h1>
+<div style="margin: 5px">
+    <div class="panel panel-warning" style="align-content: center; width: 100%">
+        <div class="panel-heading" style="align-content: center; width: 100%">
+            <h3 class="panel-title" align="center">My Events</h3>
+        </div>
+        <div class="btn-group" style="width: 100%; align-content: center; margin:10px">
+            <label class="btn btn-default" style="width: 33%" ng-model="radioModel" btn-radio="'Today'" uncheckable>Today</label>
+            <label class="btn btn-default" style="width: 33%" ng-model="radioModel" btn-radio="'Tomorrow'" uncheckable>Tomorrow</label>
+            <label class="btn btn-default" style="width: 33%" ng-model="radioModel" btn-radio="'Later'" uncheckable>Later</label>
+        </div>
+        <div ng-repeat="event in events" class="list-group-item">
+            <div style="display: inline-block; vertical-align:middle">
+                 <img src="./img/angelhack.png" width="15%" height="15%" >
+                <div ng-click="go('/event/' + event.name)"
+                     style="display: inline-block; vertical-align:middle; margin-left: 20px">
+                    <h4>{{event.name}}</h4>
+                    <p>{{event.Address}}</p>
+                    <p>{{event.Notes}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--
     <accordion>
         <accordion-group heading="{{event.name}}"  ng-repeat="event in events">
             <p>{{event.Address}}</p>
             <p>{{event.Notes}}</p>
             <button class="btn btn-default btn-sm" ng-click="go('/event/' + event.name)">Details</button>
         </accordion-group>
-    </accordion>
+    </accordion> -->
 </div>
