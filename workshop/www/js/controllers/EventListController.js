@@ -21,12 +21,16 @@ angular.module('peopleTracker.controllers', [])
     };
     $scope.events  = [
         {
-            name: "Event 1"
+            name: "World Cup",
+            Address: "10 Downing Street",
+            Notes: "this is an awesome event",
+            Location: "2222"
         },
         {
-            name: "Event 2"
+            name: "Glastonbury",
+            Address: "Somewhere cool",
+            Notes: "this is a festival",
+            Location: "2222"
         }
-
-
     ];
 }]);
