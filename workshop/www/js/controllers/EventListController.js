@@ -70,13 +70,7 @@ angular.module('peopleTracker.controllers', [])
 }])
     .controller('MapCtrl', function($scope,$routeParams, PubNub) {
 
-        $scope.lat = 46.87916;
-
-        $scope.markersMap = {};
-
-        $scope.mapPin = 'No pin set yet';
-
-        $scope.marker = { id: 1, lat: 20, long: 20 };
+        $scope.eventId = $routeParams.eventId;
 
         $scope.onClick = function () {
 
@@ -122,7 +116,7 @@ angular.module('peopleTracker.controllers', [])
         var go = function(){
             console.log('/events');
             $scope.slide = 'slide-left';
-            $location.url('/events/'+$scope.userName);
+            $location.url('/events/test');
         }
 
 
