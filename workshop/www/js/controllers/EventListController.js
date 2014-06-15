@@ -72,19 +72,10 @@ angular.module('peopleTracker.controllers', [])
                     $scope.events =data;
                 })
         }])
-    .controller('MapCtrl','$scope','$routeParams','PubNub','$rootScope', [function($scope,$routeParams, PubNub,$rootScope) {
+    .controller('MapCtrl',['$scope','$routeParams','PubNub','$rootScope', function($scope,$routeParams, PubNub,$rootScope) {
 
-        $scope.lat = 46.87916;
+        $scope.eventId = $routeParams.eventId;
 
-        $scope.markersMap = {};
-
-        $scope.mapPin = 'No pin set yet';
-
-        $scope.marker = { id: 1, lat: 20, long: 20 };
-
-        $scope.onClick = function () {
-
-        };
         PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
 
             $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
@@ -140,5 +131,6 @@ angular.module('peopleTracker.controllers', [])
 
         }
     }]) //AddPersonCtrl
-    .controller('AddEventCtrl', function($scope, $routeParams, PubNub, $location) {
-    }); //AddEventCtrl
+    .controller('AddEventCtrl', ['$scope','$rootScope','PubNub','$location',
+        function($scope, $rootScope, PubNub, $location) {
+    }]); //AddEventCtrl
