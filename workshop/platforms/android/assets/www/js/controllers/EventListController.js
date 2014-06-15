@@ -64,6 +64,7 @@ angular.module('peopleTracker.controllers', [])
     $scope.marker = { id: 1, lat: 20, long: 20 };
     
     $scope.onClick = function () {
+                
         $scope.lat += 0.1;
         $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
     };
