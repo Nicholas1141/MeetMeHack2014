@@ -29,7 +29,7 @@ module.directive('map', function () {
                  google.maps.event.addListener(map, 'click', function (e) {
                                                
                                                scope.$apply(function () {
-                                                            addMarker(1, {
+                                                            addMarker("Johnny", {
                                                                       lat: e.latLng.lat(),
                                                                       lng: e.latLng.lng()
                                                                       });
@@ -43,21 +43,38 @@ module.directive('map', function () {
                  
                  var myLatlng = new google.maps.LatLng(pos.lat, pos.lng);
                  
-                 var marker = new google.maps.Marker({
-                                                     position: myLatlng,
-                                                     map: map,
-                                                     title: "Hello World!"
-                                                     });
+                 if (markersMap[id] != undefined) {
+                 
+                 markersMap[id].setPosition(myLatlng);
+                 }
+                 else {
+                 
+                 var marker = new MarkerWithLabel({
+                                                  position: myLatlng,
+                                                  draggable: false,
+                                                  raiseOnDrag: true,
+                                                  map: map,
+                                                  labelContent: id,
+                                                  labelClass: "labels",
+                                                  labelAnchor: new google.maps.Point(22, 60),
+                                                  });
+                 
+                 /*var marker = new google.maps.Marker({
+                  position: myLatlng,
+                  map: map,
+                  title: id
+                  });*/
                  
                  markersMap[id] = marker;
+                 } 
                  }
                  
-                 clearMarkers = function() {
-                 for(var i=0; i< markers.length; i++){
-                 markers[i].setMap(null);
-                 }
-                 markers = [];
-                 };
+                 /*clearMarkers = function() {
+                  for(var i=0; i< markers.length; i++){
+                  markers[i].setMap(null);
+                  }
+                  markers = [];
+                  };*/
                  }
                  };
                  });

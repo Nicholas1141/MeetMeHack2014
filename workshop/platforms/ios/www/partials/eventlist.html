@@ -21,17 +21,16 @@
                    ng-click="changeTimeFrame('Later')">Later</label>
         </div>
         <div ng-repeat="event in events" class="list-group-item">
-            <div style="display: inline-block; vertical-align:middle">
+            <div style="display: inline-block; vertical-align:middle ; width: 100%">
                  <img src="./img/angelhack.png" width="15%" height="15%" >
                 <div
                      style="display: inline-block; vertical-align:middle; margin-left: 20px">
                     <h4 ng-click="go('/event/' + event.name)">{{event.name}}</h4>
                     <p>{{event.address}}</p>
-                    <p>{{event.notes}}</p>
+                    <p>{{event.Notes}}</p>
                     <p>{{ timeFrame }}</p>
                     <input type="button" value="Going" ng-click="subscribe(event.name)">
-                    <label ng-bind=""></label>
-                    <input type="button" value="Publish" ng-click="publish(event.name)">
+                    <!--<input type="button" value="Publish" ng-click="publish(event.name)">-->
                 </div>
             </div>
         </div>

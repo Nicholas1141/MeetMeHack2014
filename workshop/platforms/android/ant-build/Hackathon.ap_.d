@@ -51,6 +51,7 @@
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/controllers \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/directives \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/index.js \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/markerwithlabel.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/services \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/controllers/EventListController.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/directives/map_directive.js \
