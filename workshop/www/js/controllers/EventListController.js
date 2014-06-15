@@ -11,6 +11,7 @@ angular.module('peopleTracker.controllers', [])
             $window.history.back();
         }
         $rootScope.go = function(path){
+            console.log(path);
             $scope.slide = 'slide-left';
             $location.url(path);
         }
@@ -115,7 +116,40 @@ angular.module('peopleTracker.controllers', [])
             alert(error);
         }
 }) .controller('AddPersonCtrl', function($scope) {
+$scope.addPerson = function(){
+    PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
 
+        $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
+            console.log($routeParams.eventId );
+            $scope.$apply(function () {
+                $scope.marker = {
+                    id: payload.message.subscriber,
+                    lat: payload.message.latitude,
+                    long: payload.message.longitude };
+                publish();
+            });
+        });
+    }});
+
+    var publish = function() {
+        navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
+    };
+
+    var geolocationSuccess = function(position){
+
+        PubNub.ngPublish({
+            channel: $routeParams.eventId ,
+            message: {
+                "subscriber" : "subscriberA",
+                "latitude": position.coords.latitude,
+                "longitude": position.coords.longitude
+            }
+        });
+    }
+    var geolocationError = function(error){
+        alert(error);
+    }
+}
     });
 
 

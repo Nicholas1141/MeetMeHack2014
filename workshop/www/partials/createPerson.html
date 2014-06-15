@@ -1,18 +1,19 @@
-    <div align="center">
-        Firstname *: <input type="firstname" name="firstname" />
 
-        Password *: <input type="password" name="pwd" />
+<div align="center">
 
-        Surname *: <input type="surname" name="surname" />
+    <div class="clearfix">
+        <input type="text" placeholder="First Name" ng-bind="firstName">
+    </div>
+    <div class="clearfix">
+        <input type="text" placeholder="Last Name" ng-bind="lastName">
+    </div>
+    <div class="clearfix">
+        <input type="password" placeholder="Username" ng-bind="userName">
+    </div>
+    <div class="clearfix">
+        <input type="text" placeholder="Description" ng-bind="description">
+    </div>
 
-        Email *: <input type="email" name="email" />
+    <button class="btn primary" type="submit" ng-click="addPerson()">Register</button>
 
-        Telephone: <input type="telephone" name="tel" />
-
-        Address *: <input type="address" name="add" />
-
-        Post Code *: <input type="postcode" name="ptc" />
-
-
-        <input type="submit" value="Submit" />
     </div>
