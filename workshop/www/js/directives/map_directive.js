@@ -7,7 +7,7 @@ module.directive('map', function () {
                  restrict: 'E',
                  replace: true,
                  scope: {marker: '='},
-                 template: '<div style="height:100%"></div>',
+                 template: '<div style="height:100%"></div>',  
                  link: function (scope, element, attrs) {
                  
                  markersMap = {};
