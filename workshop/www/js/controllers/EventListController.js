@@ -130,7 +130,10 @@ angular.module('peopleTracker.controllers', [])
         go();
 
 }
-    });
+    }). //AddPersonCtrl
+.controller('AddEventCtrl', function($scope, $routeParams, PubNub, $location) {
+}); //AddEventCtrl
+
 
 
 
