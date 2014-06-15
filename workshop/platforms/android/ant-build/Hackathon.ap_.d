@@ -55,7 +55,6 @@
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/controllers/EventListController.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/directives/map_directive.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/services/events.js \
-/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/js/services/messaging.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular-animate.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular-resource.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular-route.js \

@@ -53,6 +53,35 @@ angular.module('peopleTracker.controllers', [])
                     $scope.events =data;
                 })
 }])
-    .controller('MapCtrl', function ($scope) {
-        $scope.mapPin = 'No pin set yet';
-    });
+    .controller('MapCtrl', function($scope) {
+    
+    $scope.lat = 46.87916;
+    
+    $scope.markersMap = {};
+    
+    $scope.mapPin = 'No pin set yet';
+    
+    $scope.marker = { id: 1, lat: 20, long: 20 };
+    
+    $scope.onClick = function () {
+        $scope.lat += 0.1;
+        $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
+    };
+    
+    $scope.addMarker = function (id, pos) {
+        
+        alert(pos);
+        
+        var map = new google.maps.Map(document.getElementById(attrs.id), myOptions);
+        
+        var myLatlng = new google.maps.LatLng(pos.lat, pos.lng);
+        
+        var marker = new google.maps.Marker({
+                                            position: myLatlng,
+                                            map: map,
+                                            title: "Hello World!"
+                                            });
+        
+        scope.markersMap[id] = marker;
+    };
+};
