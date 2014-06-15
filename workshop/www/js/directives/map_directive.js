@@ -35,6 +35,8 @@ module.directive('map', function () {
 
             scope.$watch('marker', function (newMarker, oldMarker) {
 
+                         //newMarker.id = "Philippe";
+                         
                 //addMarker(newMarker.id, newMarker.lat, newMarker.long);
 
                 //markersMap[newMarker.id].setPosition(new google.maps.LatLng(newMarker.lat, newMarker.long));
@@ -42,7 +44,7 @@ module.directive('map', function () {
 
                 var myLatlng = new google.maps.LatLng(newMarker.lat, newMarker.long);
 
-                if (markersMap[newMarker.id] != undefined) {
+                if (markersMap[newMarker.id] !== undefined) {
 
                     markersMap[newMarker.id].setPosition(myLatlng);
                 }

@@ -21,7 +21,7 @@
                    ng-click="changeTimeFrame('Later')">Later</label>
         </div>
         <div style="text-align: right">
-            <input ng-click="AddEvent" value="Add Event" type="button">
+            <input ng-click="go('/createEvent')" value="Add Event" type="button"></input>
         </div>
         <div ng-repeat="event in events" class="list-group-item">
             <div style="display: inline-block; vertical-align:middle ; width: 100%">
@@ -33,8 +33,7 @@
                     <p>{{event.notes}}</p>
                     <p>{{ timeFrame }}</p>
                     <input type="button" value="Going" ng-click="subscribe(event.name)">
-                    <input style="text-align: right" type="button" value="Add Person" ng-click="go('/createPerson/'+event.name)">
-                </div>
+                  </div>
             </div>
         </div>
     </div>

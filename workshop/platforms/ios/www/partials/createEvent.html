@@ -4,9 +4,24 @@
              style="align-content: center; width: 100%;display: inline-block;"
                 margin="10px">
             <button class="btn btn-warning" style="display: inline-block;" ng-click="go('/events')">Back</button>
-            <h3 class="panel-title" align="center" style="display: inline-block;" width="80%">My Events</h3>
+            <h3 class="panel-title" align="center" style="display: inline-block;" width="80%">Add Event</h3>
         </div>
         
-        Hello
+       <div style="height: 100%; width:100%; align-content: center" align="center">
+         <div >
+             <input type="text" style="width:80%;" placeholder="Event Name" ng-model="eventName">
+    </div>
+    <div>
+        <input type="text" style="width:80%;" placeholder="Address" ng-model="address">
+    </div>
+        <div>
+        <input type="text" style="width:80%;" placeholder="Note" ng-model="note">
+    </div>
+    <br>
+
+    <button  type="submit" class="btn btn-warning" style="width:80%;"  ng-click="addEvent()">Create</button>
+
+    </div>
+
 </div>
 </div>

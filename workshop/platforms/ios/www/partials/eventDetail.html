@@ -1,20 +1,36 @@
 <div style="height:100%; align-content: center;">
-    <div class="panel panel-warning" style="align-content: center; width: 100%; height:100%">
+    <div class="panel panel-warning"
+         style="align-content: center; width: 100%; height:100%">
+
         <div class="panel-heading"
-             style="align-content: center; width: 100%;display: inline-block;"
-                margin="10px">
-            <button class="btn btn-warning" style="display: inline-block;" ng-click="go('/events')">Back</button>
-            <h3 class="panel-title" align="center" style="display: inline-block;" width="80%">My Events</h3>
+             style=" width: 100%;display: inline-block;"
+              >
+            <button class="btn btn-warning pull-left" style="display: inline-block;" ng-click="go('/events')">Back</button>
+
+            <h3 class="panel-title" style="margin: 0; padding: 0; width: 200px; margin: 0 auto; display: block"
+                align="center" >{{eventId}}</h3>
         </div>
 
-        <div height="10px" width="100%">
-              <br><br>
+        <div height="10px" width="100%" align="center">
+            <div>
+            <br>
+            <img src="./img/angelhack.png" width="60px" height="60px" >
+                <br>
+            <br>
+            <p>From : 20th June 8pm</p>
+            <p>To:    30th June 10pm</p>
+
+            <p>Google Campus,<br>
+                4 Bon Hill Street,<br>
+                London EC2A 4BX
+            </p>
+            </div>
         </div>
 
-        <div style="height:100%" margin="10px">
+        <div style="height:50%" margin="10px">
             <div ng-controller="MapCtrl" style="height:80%" align="center">
                 
-                <map id="map_canvas" marker="marker" style="height:100%; width:80%">
+               <map id="map_canvas" marker="marker" style="height:100%; width:80%">
                     
                 </map>
                 

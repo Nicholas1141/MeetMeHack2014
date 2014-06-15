@@ -29,8 +29,9 @@ angular.module('peopleTracker.controllers', [])
             });
 
             var publish = function() {
-                navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { frequency: 1000 } );
+                navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { frequency: 5000 } );
             };
+                                       
             var geolocationSuccess = function(position){
                 testscope($rootScope, position);
 
@@ -41,7 +42,7 @@ angular.module('peopleTracker.controllers', [])
                 PubNub.ngPublish({
                     channel: $scope.selectedEvent ,
                     message: {
-                        "subscriber" : $scope.userName,
+                        "subscriber" : "Philippe",
                         "latitude": position.coords.latitude,
                         "longitude": position.coords.longitude
                     }
@@ -49,13 +50,15 @@ angular.module('peopleTracker.controllers', [])
             }
 
             $scope.subscribe = function(eventName) {
-                PubNub.ngSubscribe({ channel: eventName});
+                                       
+                //PubNub.ngSubscribe({ channel: eventName});
 
-                $rootScope.$on(PubNub.ngMsgEv(eventName), function (event, payload) {
+                /*$rootScope.$on(PubNub.ngMsgEv(eventName), function (event, payload) {
                     console.log(payload.message.subscriber + " : " +  payload.message.latitude + " : " + payload.message.longitude);
-                });
+                });*/
 
                 $scope.selectedEvent = eventName;
+                                       
                 publish();
                 //  setInterval( $scope.publish(), 2000);
             }
@@ -79,19 +82,23 @@ angular.module('peopleTracker.controllers', [])
         PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
 
             $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
-                console.log($routeParams.eventId );
-                $scope.$apply(function () {
-                    $scope.marker = {
+                
+               //console.log($routeParams.eventId );
+                
+                   $scope.$apply(function () {
+                   
+                        $scope.marker = {
                         id: payload.message.subscriber,
                         lat: payload.message.latitude,
                         long: payload.message.longitude };
-                    publish();
+                                 
+                    //publish();
                 });
             });
         }});
 
         var publish = function() {
-            navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { frequency: 1000 });
+            navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { frequency: 5000 });
         };
 
         var geolocationSuccess = function(position){
@@ -104,7 +111,7 @@ angular.module('peopleTracker.controllers', [])
             PubNub.ngPublish({
                 channel: $routeParams.eventId ,
                 message: {
-                    "subscriber" : $scope.userName,
+                    "subscriber" : "Philippe",  //$scope.userName,
                     "latitude": position.coords.latitude,
                     "longitude": position.coords.longitude
                 }

@@ -1,19 +1,26 @@
 
-<div align="center">
+<div style="height: 100%; width:100%; align-content: center; background-color: #ffffff; vertical-align: middle" align="center">
 
-    <div class="clearfix">
-        <input type="text" placeholder="First Name" ng-bind="firstName">
+    <br>
+    <br>
+    <img src="./img/angelhack.png" width="60px" height="60px" >
+    <br>
+    <br>
+    
+     <div style="height: 100%; width:100%; align-content: center" align="center">
+         <div >
+             <input type="text" style="width:80%;" placeholder="Username" ng-model="userName">
     </div>
-    <div class="clearfix">
-        <input type="text" placeholder="Last Name" ng-bind="lastName">
-    </div>
-    <div class="clearfix">
-        <input type="password" placeholder="Username" ng-bind="userName">
-    </div>
-    <div class="clearfix">
-        <input type="text" placeholder="Description" ng-bind="description">
-    </div>
+         <br>
 
-    <button class="btn primary" type="submit" ng-click="addPerson()">Register</button>
+    <div>
+        <input type="password" style="width:80%;" placeholder="Password" ng-model="password">
+    </div>
+    <br>
+
+    <br>
+    <button  type="submit" class="btn btn-warning" style="width:80%;"  ng-click="addPerson()">Log in</button>
 
     </div>
+</div>
+
