@@ -11,6 +11,7 @@ angular.module('peopleTracker.controllers', [])
             $window.history.back();
         }
         $rootScope.go = function(path){
+            console.log(path);
             $scope.slide = 'slide-left';
             $location.url(path);
         }
@@ -42,20 +43,13 @@ angular.module('peopleTracker.controllers', [])
                   }
               });
       }
-                                       
+
            $scope.subscribe = function(eventName) {
           PubNub.ngSubscribe({ channel: eventName});
 
            $rootScope.$on(PubNub.ngMsgEv(eventName), function (event, payload) {
-
-                          console.log(payload.message.subscriber + " : " +  payload.message.latitude + " : " + payload.message.longitude);
-
-//                          $scope.marker = {
-//                          id: payload.message.subscriber ,
-//                          lat: payload.message.latitude,
-//                          long: payload.message.longitude };
-
-                          });
+            console.log(payload.message.subscriber + " : " +  payload.message.latitude + " : " + payload.message.longitude);
+          });
 
            $scope.selectedEvent = eventName;
            publish();
@@ -65,7 +59,7 @@ angular.module('peopleTracker.controllers', [])
 
 
             var geolocationError = function(error){
-                alert(error);
+                console.log(error);
           }
                                        
        
@@ -74,7 +68,7 @@ angular.module('peopleTracker.controllers', [])
                     $scope.events =data;
                 })
 }])
-    .controller('MapCtrl', function($scope, PubNub) {
+    .controller('MapCtrl', function($scope,$routeParams, PubNub) {
 
         $scope.lat = 46.87916;
 
@@ -89,13 +83,12 @@ angular.module('peopleTracker.controllers', [])
           //  $scope.lat += 0.1;
           //  $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
         };
-        PubNub.ngSubscribe({ channel: "Angel Hack", message: function() {
+        PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
 
-            $scope.$on(PubNub.ngMsgEv("Angel Hack"), function (event, payload) {
-                console.log("payload from map" + payload );
+            $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
+                console.log($routeParams.eventId );
                 $scope.$apply(function () {
                     $scope.marker = {
-
                         id: payload.message.subscriber,
                         lat: payload.message.latitude,
                         long: payload.message.longitude };
@@ -111,7 +104,7 @@ angular.module('peopleTracker.controllers', [])
         var geolocationSuccess = function(position){
 
             PubNub.ngPublish({
-                channel: "Angel Hack" ,
+                channel: $routeParams.eventId ,
                 message: {
                     "subscriber" : "subscriberA",
                     "latitude": position.coords.latitude,
@@ -122,7 +115,42 @@ angular.module('peopleTracker.controllers', [])
         var geolocationError = function(error){
             alert(error);
         }
-});
+}) .controller('AddPersonCtrl', function($scope) {
+$scope.addPerson = function(){
+    PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
+
+        $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
+            console.log($routeParams.eventId );
+            $scope.$apply(function () {
+                $scope.marker = {
+                    id: payload.message.subscriber,
+                    lat: payload.message.latitude,
+                    long: payload.message.longitude };
+                publish();
+            });
+        });
+    }});
+
+    var publish = function() {
+        navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
+    };
+
+    var geolocationSuccess = function(position){
+
+        PubNub.ngPublish({
+            channel: $routeParams.eventId ,
+            message: {
+                "subscriber" : "subscriberA",
+                "latitude": position.coords.latitude,
+                "longitude": position.coords.longitude
+            }
+        });
+    }
+    var geolocationError = function(error){
+        alert(error);
+    }
+}
+    });
 
 
 

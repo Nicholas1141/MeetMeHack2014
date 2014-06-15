@@ -62,6 +62,8 @@
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular-touch.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular.min.js \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib/angular.min.js.map \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/partials/createEvent.html \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/partials/createPerson.html \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/partials/eventDetail.html \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/partials/eventlist.html \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/plugins/org.apache.cordova.device \

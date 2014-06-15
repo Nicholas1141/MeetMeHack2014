@@ -33,14 +33,40 @@ module.directive('map', function () {
                         });
                                                      
                  
-                 
-                 
-                 
                  scope.$watch('marker', function (newMarker, oldMarker) {
                               
-                              addMarker(newMarker.id, newMarker.lat, newMarker.long);
+                              //addMarker(newMarker.id, newMarker.lat, newMarker.long);
                               
         //markersMap[newMarker.id].setPosition(new google.maps.LatLng(newMarker.lat, newMarker.long));
+                              
+                              
+                              var myLatlng = new google.maps.LatLng(newMarker.lat, newMarker.long);
+                              
+                              if (markersMap[newMarker.id] != undefined) {
+                              
+                              markersMap[newMarker.id].setPosition(myLatlng);
+                              }
+                              else {
+                              
+                              var newMarkerLabel = new MarkerWithLabel({
+                                                               position: myLatlng,
+                                                               draggable: false,
+                                                               raiseOnDrag: true,
+                                                               map: map,
+                                                               labelContent: newMarker.id,
+                                                               labelClass: "labels",
+                                                               labelAnchor: new google.maps.Point(22, 60),
+                                                               });
+                              
+                              /*var marker = new google.maps.Marker({
+                               position: myLatlng,
+                               map: map,
+                               title: id
+                               });*/
+                              
+                              markersMap[newMarker.id] = newMarkerLabel;
+                              }
+                              
                               });
                  
                  google.maps.event.addListener(map, 'click', function (e) {
@@ -92,6 +118,7 @@ module.directive('map', function () {
                   }
                   markers = [];
                   };*/
+                 
                  }
                  };
                  });
