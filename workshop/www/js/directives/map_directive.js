@@ -31,8 +31,8 @@ module.directive('map', function () {
                                                
                                                scope.$apply(function () {
                                                             addMarker("Johnny",
-                                                                      lat: e.latLng.lat(),
-                                                                      long: e.latLng.lng()
+                                                                      e.latLng.lat(),
+                                                                      e.latLng.lng()
                                                                       );
                                                             
                                                             console.log(e);
@@ -40,9 +40,9 @@ module.directive('map', function () {
                                                
                                                }); // end click listener
                  
-                 addMarker = function (id, pos) {
+                 addMarker = function (id, lat, long) {
                  
-                 var myLatlng = new google.maps.LatLng(pos.lat, pos.long);
+                 var myLatlng = new google.maps.LatLng(lat, long);
                  
                  if (markersMap[id] != undefined) {
                  
