@@ -12,13 +12,29 @@ module.directive('map', function () {
                  
                  markersMap = {};
                  
-                 var myOptions = {
-                 zoom: 6,
-                 center: new google.maps.LatLng(46.87916, -3.32910),
-                 mapTypeId: google.maps.MapTypeId.ROADMAP
-                 };
+                 var map;
                  
-                 var map = new google.maps.Map(document.getElementById(attrs.id), myOptions);
+                 navigator.geolocation.watchPosition(
+                        function(position){
+                            
+                                        var myOptions = {
+                                                     center: new google.maps.LatLng(
+                                                    position.coords.latitude, position.coords.longitude),
+                                                     mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                     zoom: 15
+                                                     };
+                                                     
+                    map = new google.maps.Map(document.getElementById(attrs.id), myOptions);
+                                                     
+                    //addMarker("Me", position.coords.latitude, position.coords.longitude);
+                 
+                        },
+                        function(error){
+                        });
+                                                     
+                 
+                 
+                 
                  
                  scope.$watch('marker', function (newMarker, oldMarker) {
                               
@@ -29,14 +45,14 @@ module.directive('map', function () {
                  
                  google.maps.event.addListener(map, 'click', function (e) {
                                                
-                                               scope.$apply(function () {
+                                               /*scope.$apply(function () {
                                                             addMarker("Johnny",
                                                                       e.latLng.lat(),
                                                                       e.latLng.lng()
                                                                       );
                                                             
                                                             console.log(e);
-                                                            });
+                                                            });*/
                                                
                                                }); // end click listener
                  

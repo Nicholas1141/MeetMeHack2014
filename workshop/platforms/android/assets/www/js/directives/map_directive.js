@@ -12,36 +12,53 @@ module.directive('map', function () {
                  
                  markersMap = {};
                  
-                 var myOptions = {
-                 zoom: 6,
-                 center: new google.maps.LatLng(46.87916, -3.32910),
-                 mapTypeId: google.maps.MapTypeId.ROADMAP
-                 };
+                 var map;
                  
-                 var map = new google.maps.Map(document.getElementById(attrs.id), myOptions);
+                 navigator.geolocation.watchPosition(
+                        function(position){
+                            
+                                        var myOptions = {
+                                                     center: new google.maps.LatLng(
+                                                    position.coords.latitude, position.coords.longitude),
+                                                     mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                                     zoom: 15
+                                                     };
+                                                     
+                    map = new google.maps.Map(document.getElementById(attrs.id), myOptions);
+                                                     
+                    //addMarker("Me", position.coords.latitude, position.coords.longitude);
+                 
+                        },
+                        function(error){
+                        });
+                                                     
+                 
+                 
+                 
                  
                  scope.$watch('marker', function (newMarker, oldMarker) {
                               
-                              markersMap[newMarker.id].setPosition(
-                                                                   new google.maps.LatLng(newMarker.lat, newMarker.long));
+                              addMarker(newMarker.id, newMarker.lat, newMarker.long);
+                              
+        //markersMap[newMarker.id].setPosition(new google.maps.LatLng(newMarker.lat, newMarker.long));
                               });
                  
                  google.maps.event.addListener(map, 'click', function (e) {
                                                
-                                               scope.$apply(function () {
-                                                            addMarker("Johnny", {
-                                                                      lat: e.latLng.lat(),
-                                                                      lng: e.latLng.lng()
-                                                                      });
+                                               /*scope.$apply(function () {
+                                                            addMarker("Johnny",
+                                                                      e.latLng.lat(),
+                                                                      e.latLng.lng()
+                                                                      );
                                                             
                                                             console.log(e);
-                                                            });
+                                                            });*/
                                                
                                                }); // end click listener
                  
-                 addMarker = function (id, pos) {
+                 addMarker = function (id, lat, long) {
                  
-                 var myLatlng = new google.maps.LatLng(pos.lat, pos.lng);
+                 var myLatlng = new google.maps.LatLng(lat, long);
                  
                  if (markersMap[id] != undefined) {
                  
