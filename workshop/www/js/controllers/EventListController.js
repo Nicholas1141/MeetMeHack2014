@@ -15,6 +15,13 @@ angular.module('peopleTracker.controllers', [])
             $location.url(path);
         }
 
+            $scope.timeFrame = "Today";
+
+            $scope.changeTimeFrame = function(newTimeFrame)
+            {
+                $scope.timeFrame = newTimeFrame;
+            };
+
         PubNub.init({
                 publish_key   : 'pub-c-11781c51-4d7a-48ba-857f-2a6b5184ce10',
                 subscribe_key : 'sub-c-a709d546-f3cd-11e3-928e-02ee2ddab7fe'
