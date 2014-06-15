@@ -15,21 +15,5 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <access subdomains="true" uri="*" />
-    <access subdomains="true" uri="http://23.23.212.64" />
-    <access subdomains="true" uri="http://ps1.pubnub.com" />
-    <access subdomains="true" uri="http://ps2.pubnub.com" />
-    <access subdomains="true" uri="http://ps3.pubnub.com" />
-    <access subdomains="true" uri="http://ps4.pubnub.com" />
-    <access subdomains="true" uri="http://ps5.pubnub.com" />
-    <access subdomains="true" uri="http://ps6.pubnub.com" />
-    <access subdomains="true" uri="http://ps7.pubnub.com" />
-    <access subdomains="true" uri="http://ps8.pubnub.com" />
-    <access subdomains="true" uri="http://ps9.pubnub.com" />
-    <access subdomains="true" uri="http://ps10.pubnub.com" />
-    <access subdomains="true" uri="http://ps11.pubnub.com" />
-    <access subdomains="true" uri="http://ps12.pubnub.com" />
-    <access subdomains="true" uri="http://ps13.pubnub.com" />
-    <access subdomains="true" uri="http://ps14.pubnub.com" />
-    <access subdomains="true" uri="http://*.pubnub.com" />
+    <preference name="websecurity" value="disable" />
 </widget>
