@@ -1,0 +1,49 @@
+<html ng-app="myApp" ng-controller="myAppController">
+<head>
+    <script src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <script src="http://cdn.pubnub.com/pubnub.min.js"></script>
+    <script src='bower_components/angular/angular.js'></script>
+    <script src="http://pubnub.github.io/angular-js/scripts/pubnub-angular.js"></script>
+    <script src='bower_components/underscore/underscore.js'></script>
+    <script src='bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
+    <script>
+        var m = angular.module('myApp', ['google-maps', 'pubnub.angular.service']);
+        m.controller("myAppController", function($scope, PubNub) {
+            $scope.map = {
+                center: {
+                    latitude: 37.7756,
+                    longitude: -122.4193
+                },
+                zoom: 15
+            }
+            $scope.vehicles = []
+            PubNub.init({ publish_key: 'pub-c-45622c07-4b3b-41fe-8742-dfb544cbee9e', subscribe_key: 'sub-c-32309338-c68a-11e3-8dcd-02ee2ddab7fe'});
+            PubNub.ngSubscribe({channel: 'sf-muni', message: function(x) {
+                $scope.$apply( function() {
+//x[0].data.map(function(i) {$scope.vehicles[i.id]=i });
+                    $scope.vehicles[x[0].mod] = x[0].data;
+                });
+//angular.extend($scope.vehicles, x[0].data);
+            }});
+        });
+    </script>
+    <style>
+        .angular-google-map-container { height: 100%; }
+    </style>
+</head>
+<body>
+<google-map center="map.center" zoom="map.zoom" draggable="true">
+    <marker coords='{latitude: 37.7834047, longitude: -122.3993515}' icon='"https://s3.amazonaws.com/assets.heroku.com/addons.heroku.com/icons/446/small.png?1383868077"'></marker>
+    <markers models='vehicles[0]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[1]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[2]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[3]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[4]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[5]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[6]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[7]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[8]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+    <markers models='vehicles[9]' coords='"self"' doCluster='false' options='{icon: {url: "/Users/dave/pubnub-muni/images/bus.png"}}'></markers>
+</google-map>
+</body>
+</html>
