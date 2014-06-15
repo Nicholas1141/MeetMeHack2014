@@ -6,6 +6,7 @@
 -C
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src
 bar-descriptor.xml
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/config.xml
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/cordova.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/cordova_plugins.js
@@ -31,11 +32,13 @@ bar-descriptor.xml
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/app.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/index.js
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/markerwithlabel.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/controllers/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/controllers/EventListController.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/directives/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/directives/map_directive.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/js/services/events.js
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular-animate.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular-resource.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular-route.js
@@ -43,6 +46,8 @@ bar-descriptor.xml
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular.min.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/lib/angular.min.js.map
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/.DS_Store
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/createEvent.html
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/createPerson.html
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/eventDetail.html
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/partials/eventlist.html
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/plugins/jnext/auth.txt

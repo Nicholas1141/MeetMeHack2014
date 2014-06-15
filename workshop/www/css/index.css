@@ -112,3 +112,5 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.labels {             color: red;             background-color: white;             font-family: "Lucida Grande", "Arial", sans-serif;             font-size: 10px;             font-weight: bold;             text-align: center;             width: 40px;             border: 2px solid black;             white-space: nowrap;           }

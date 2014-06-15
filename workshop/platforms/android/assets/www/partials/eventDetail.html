@@ -2,13 +2,14 @@
     <button class="btn btn-default btn-sm" ng-click="go('/events')">Back</button>
 
         <div style="height:100%">
-            <div ng-controller="MapCtrl" class="map_style">
-                <map id="map_canvas">
+            <div ng-controller="MapCtrl" style="height:100%">
+                
+                <map id="map_canvas" marker="marker" style="height:100%">
                     
                 </map>
                 
                 <button ng-click='onClick()'>
-                    Move
+                    Move Marker
                 </button>
             </div>
         </div>

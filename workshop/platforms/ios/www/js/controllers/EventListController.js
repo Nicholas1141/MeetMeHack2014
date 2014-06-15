@@ -11,6 +11,7 @@ angular.module('peopleTracker.controllers', [])
             $window.history.back();
         }
         $rootScope.go = function(path){
+            console.log(path);
             $scope.slide = 'slide-left';
             $location.url(path);
         }
@@ -27,61 +28,139 @@ angular.module('peopleTracker.controllers', [])
                 subscribe_key : 'sub-c-a709d546-f3cd-11e3-928e-02ee2ddab7fe'
             });
 
-        $scope.publish = function(eventChannel) {
-            PubNub.ngPublish({
-                channel: eventChannel ,
-                message: {
-                    "subscriber" : "subscriberA",
-                    "latitude": 64.546456456,
-                    "longitude": -133.3535345
-                }
-            });
+        var publish = function() {
+            navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
         };
-        $scope.subscribe = function(eventChannel) {
-            PubNub.ngSubscribe({ channel: eventChannel })
-            $rootScope.$on(PubNub.ngMsgEv(eventChannel), function (event, payload) {
-                alert( payload.message);
-            })
-            $rootScope.$on(PubNub.ngPrsEv(eventChannel), function (event, payload) {
-                // payload contains message, channel, env...
-                alert( PubNub.ngListPresence(eventChannel) + "presence one");
-            })
-        }
 
+          var geolocationSuccess = function(position){
+
+              PubNub.ngPublish({
+                  channel: $scope.selectedEvent ,
+                  message: {
+                      "subscriber" : "subscriberA",
+                      "latitude": position.coords.latitude,
+                      "longitude": position.coords.longitude
+                  }
+              });
+      }
+
+           $scope.subscribe = function(eventName) {
+          PubNub.ngSubscribe({ channel: eventName});
+
+           $rootScope.$on(PubNub.ngMsgEv(eventName), function (event, payload) {
+            console.log(payload.message.subscriber + " : " +  payload.message.latitude + " : " + payload.message.longitude);
+          });
+
+           $scope.selectedEvent = eventName;
+           publish();
+           //  setInterval( $scope.publish(), 2000);
+           }
+
+
+
+            var geolocationError = function(error){
+                console.log(error);
+          }
+                                       
+       
          Events.get()
                 .success(function(data){
                     $scope.events =data;
                 })
 }])
-    .controller('MapCtrl', function($scope) {
-    
-    $scope.lat = 46.87916;
-    
-    $scope.markersMap = {};
-    
-    $scope.mapPin = 'No pin set yet';
-    
-    $scope.marker = { id: 1, lat: 20, long: 20 };
-    
-    $scope.onClick = function () {
-        $scope.lat += 0.1;
-        $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
-    };
-    
-    $scope.addMarker = function (id, pos) {
-        
-        alert(pos);
-        
-        var map = new google.maps.Map(document.getElementById(attrs.id), myOptions);
-        
-        var myLatlng = new google.maps.LatLng(pos.lat, pos.lng);
-        
-        var marker = new google.maps.Marker({
-                                            position: myLatlng,
-                                            map: map,
-                                            title: "Hello World!"
-                                            });
-        
-        scope.markersMap[id] = marker;
-    };
+    .controller('MapCtrl', function($scope,$routeParams, PubNub) {
+
+        $scope.lat = 46.87916;
+
+        $scope.markersMap = {};
+
+        $scope.mapPin = 'No pin set yet';
+
+        $scope.marker = { id: 1, lat: 20, long: 20 };
+
+        $scope.onClick = function () {
+
+          //  $scope.lat += 0.1;
+          //  $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
+        };
+        PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
+
+            $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
+                console.log($routeParams.eventId );
+                $scope.$apply(function () {
+                    $scope.marker = {
+                        id: payload.message.subscriber,
+                        lat: payload.message.latitude,
+                        long: payload.message.longitude };
+                    publish();
                 });
+            });
+        }});
+
+        var publish = function() {
+            navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
+        };
+
+        var geolocationSuccess = function(position){
+
+            PubNub.ngPublish({
+                channel: $routeParams.eventId ,
+                message: {
+                    "subscriber" : "subscriberA",
+                    "latitude": position.coords.latitude,
+                    "longitude": position.coords.longitude
+                }
+            });
+        }
+        var geolocationError = function(error){
+            alert(error);
+        }
+}) .controller('AddPersonCtrl', function($scope) {
+$scope.addPerson = function(){
+    PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
+
+        $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
+            console.log($routeParams.eventId );
+            $scope.$apply(function () {
+                $scope.marker = {
+                    id: payload.message.subscriber,
+                    lat: payload.message.latitude,
+                    long: payload.message.longitude };
+                publish();
+            });
+        });
+    }});
+
+    var publish = function() {
+        navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
+    };
+
+    var geolocationSuccess = function(position){
+
+        PubNub.ngPublish({
+            channel: $routeParams.eventId ,
+            message: {
+                "subscriber" : "subscriberA",
+                "latitude": position.coords.latitude,
+                "longitude": position.coords.longitude
+            }
+        });
+    }
+    var geolocationError = function(error){
+        alert(error);
+    }
+}
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
