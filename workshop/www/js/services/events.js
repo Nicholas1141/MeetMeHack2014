@@ -6,6 +6,9 @@ angular.module('eventsService', [])
         return{
             get:function(){
                 return $http.get('http://23.23.212.64:3000/nodehack/api/v1/groupevents');
+            },
+            post:function(data){
+                return $http.post('http://23.23.212.64:3000/nodehack/api/v1/groupevent', data);
             }
         }
     });
