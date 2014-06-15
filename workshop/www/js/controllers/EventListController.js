@@ -29,7 +29,7 @@ angular.module('peopleTracker.controllers', [])
             });
 
             var publish = function() {
-                navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
+                navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { frequency: 1000 } );
             };
             var geolocationSuccess = function(position){
                 testscope($rootScope, position);
@@ -91,7 +91,7 @@ angular.module('peopleTracker.controllers', [])
         }});
 
         var publish = function() {
-            navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
+            navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { frequency: 1000 });
         };
 
         var geolocationSuccess = function(position){
@@ -131,6 +131,25 @@ angular.module('peopleTracker.controllers', [])
 
         }
     }]) //AddPersonCtrl
-    .controller('AddEventCtrl', ['$scope','$rootScope','PubNub','$location',
-        function($scope, $rootScope, PubNub, $location) {
+    .controller('AddEventCtrl', ['$scope','$rootScope', 'PubNub','$location', 'Events',
+        function($scope, $rootScope, PubNub, $location, Events) {
+        
+        $scope.eventName = "";
+        $scope.note = "";
+        $scope.address = "";
+
+        var go = function(){
+            $scope.slide = 'slide-left';
+            $location.url('/events');
+        }
+
+        $scope.addEvent = function(){
+            
+            Events.post({name: $scope.eventName, address: $scope.address, note: $scope.note})
+            
+            go();
+
+        }
+        
+        
     }]); //AddEventCtrl
