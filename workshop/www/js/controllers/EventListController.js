@@ -16,6 +16,12 @@ angular.module('peopleTracker.controllers', [])
         }
 
       //  Messaging.publish("MyEvent");
+        $scope.timeFrame = "Today";
+
+        $scope.changeTimeFrame = function(newTimeFrame)
+        {
+            $scope.timeFrame = newTimeFrame;
+        };
 
         $rootScope.subscribeToEvent = function (){
             Messaging.subscribeToEvent("MyEvent");
