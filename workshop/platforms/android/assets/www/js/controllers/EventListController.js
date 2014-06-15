@@ -84,4 +84,4 @@ angular.module('peopleTracker.controllers', [])
         
         scope.markersMap[id] = marker;
     };
-};
+                });
