@@ -1,11 +1,11 @@
 [{
   "attendees": [
     [
-        {"id":1},
-        {"trackLocation":true},
-        {"checkedin": false},
-        {"name": "Angel Hack"}
-        ],
+      {"id":1},
+      {"trackLocation":true},
+      {"checkedin": false},
+      {"name": "Angel Hack"}
+      ],
    [
     {"id":2},
     {"trackLocation":true},
@@ -13,9 +13,11 @@
     {"name": "Ninja Hack"}
     ]
   ],
+  "id":123,
   "name": "Angel Hack",
   "note": "this is my description",
-  "eventend": "14 June 2014",
+  "eventstart" : "14 June 2014",
+  "eventend": "15 June 2014",
   "status": "active",
   "longitude": 64.079526,
   "latitude": -13.862221,
@@ -24,11 +26,11 @@
 {
   "attendees": [
     [
-        {"id":1},
-        {"trackLocation":true},
-        {"checkedin": true},
-        {"name": "Brazil"}
-        ],
+      {"id":1},
+      {"trackLocation":true},
+      {"checkedin": true},
+      {"name": "Brazil"}
+      ],
     [
     {"id":2},
     {"trackLocation":true},
@@ -36,12 +38,39 @@
     {"name": "Croatia"}
     ]
   ],
+  "id":321,
   "name": "World Cup - Brazil vs Croatia",
   "note": "We love World Cup",
-  "eventend": "12 June 2014",
+  "eventstart" : "14 June 2014",
+  "eventend": "14 June 2014",
   "status": "active",
   "longitude": 64.079526,
   "latitude": -13.862221,
   "address":"Google Campus London"
+},
+{
+  "attendees": [
+    [
+        {"id":1},
+        {"trackLocation":true},
+        {"checkedin": false},
+        {"name": "Another Attendee"}
+        ],
+   [
+    {"id":2},
+    {"trackLocation":true},
+    {"checkedin": false},
+    {"name": "An attendee"}
+    ]
+  ],
+    "id":4321,
+  "name": "X Men: Days of the Future Past",
+  "note": "this is a great movie",
+  "eventstart" : "17 June 2014",
+  "eventend": "17 June 2014",
+  "status": "active",
+  "longitude": 64.079526,
+  "latitude": -13.862221,
+  "Address":"Vue Cinema, Leicester Square"
 }
 ]

@@ -27,9 +27,9 @@ angular.module('peopleTracker.controllers', [])
                 subscribe_key : 'sub-c-a709d546-f3cd-11e3-928e-02ee2ddab7fe'
             });
 
-        $scope.publish = function() {
+        $scope.publish = function(eventChannel) {
             PubNub.ngPublish({
-                channel: "hello",
+                channel: eventChannel ,
                 message: {
                     "subscriber" : "subscriberA",
                     "latitude": 64.546456456,
@@ -37,14 +37,14 @@ angular.module('peopleTracker.controllers', [])
                 }
             });
         };
-        $scope.subscribe = function() {
-            PubNub.ngSubscribe({ channel: "hello" })
-            $rootScope.$on(PubNub.ngMsgEv("hello"), function (event, payload) {
+        $scope.subscribe = function(eventChannel) {
+            PubNub.ngSubscribe({ channel: eventChannel })
+            $rootScope.$on(PubNub.ngMsgEv(eventChannel), function (event, payload) {
                 alert( payload.message);
             })
-            $rootScope.$on(PubNub.ngPrsEv("hello"), function (event, payload) {
+            $rootScope.$on(PubNub.ngPrsEv(eventChannel), function (event, payload) {
                 // payload contains message, channel, env...
-                alert( PubNub.ngListPresence("hello") + "presence one");
+                alert( PubNub.ngListPresence(eventChannel) + "presence one");
             })
         }
 
