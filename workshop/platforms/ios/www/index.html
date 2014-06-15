@@ -26,15 +26,23 @@
        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> !>
 
        <!-- Bootstrap core CSS -->
-        <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap theme -->
-        <link href="../../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
 
         <meta name="msapplication-tap-highlight" content="no" />
         <title>Hello World</title>
     </head>
-    <body ng-controller="EventListController" >
-        <div ng-view ng-class="slide"></div>
+    
+    <style>
+        body, html {
+            height: 100%;
+        }
+    
+    </style>
+    
+    <body ng-controller="EventListController" style="height:100%">
+        <div ng-view ng-class="slide" style="height:100%"></div>
         <input type="button" value="subscribe" ng-click="subscribeToEvent()" />
         <script type="text/javascript" src="cordova.js"></script>
         <script src="./lib/angular.min.js"></script>

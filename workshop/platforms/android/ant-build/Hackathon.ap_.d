@@ -38,6 +38,12 @@
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/lib \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/partials \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/plugins \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/bootstrap-theme.css \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/bootstrap-theme.css.map \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/bootstrap-theme.min.css \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/bootstrap.css \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/bootstrap.css.map \
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/bootstrap.min.css \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/css/index.css \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/img/angelhack.png \
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/android/assets/www/img/logo.png \
