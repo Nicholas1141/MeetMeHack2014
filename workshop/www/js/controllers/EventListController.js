@@ -129,10 +129,11 @@ angular.module('peopleTracker.controllers', [])
 
        $scope.eventName = "";
        $scope.address = "";
+       $scope.note = "";
 $scope.addEvent = function(){
 
    
-  Events.post({ name: $scope.eventName, address: $scope.address });
+  Events.post({ name: $scope.eventName, address: $scope.address, note: $scope.note });
 
 var go = function(){
             console.log('/events');
