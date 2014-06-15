@@ -22,17 +22,18 @@ module.directive('map', function () {
                  
                  scope.$watch('marker', function (newMarker, oldMarker) {
                               
-                              markersMap[newMarker.id].setPosition(
-                                                                   new google.maps.LatLng(newMarker.lat, newMarker.long));
+                              addMarker(newMarker.id, newMarker.lat, newMarker.long);
+                              
+        //markersMap[newMarker.id].setPosition(new google.maps.LatLng(newMarker.lat, newMarker.long));
                               });
                  
                  google.maps.event.addListener(map, 'click', function (e) {
                                                
                                                scope.$apply(function () {
-                                                            addMarker("Johnny", {
+                                                            addMarker("Johnny",
                                                                       lat: e.latLng.lat(),
-                                                                      lng: e.latLng.lng()
-                                                                      });
+                                                                      long: e.latLng.lng()
+                                                                      );
                                                             
                                                             console.log(e);
                                                             });
@@ -41,7 +42,7 @@ module.directive('map', function () {
                  
                  addMarker = function (id, pos) {
                  
-                 var myLatlng = new google.maps.LatLng(pos.lat, pos.lng);
+                 var myLatlng = new google.maps.LatLng(pos.lat, pos.long);
                  
                  if (markersMap[id] != undefined) {
                  
