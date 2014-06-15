@@ -25,15 +25,101 @@ var process = require('child_process');
 
 exports.getGroupEvents = function (callback) {
 
-    var events = [];
+    var events =
 
-    var event1 = { Name: 'Event1', Date: '14/06/2014' };
-    var event2 = { Name: 'Event2', Date: '14/06/2014' };
-    var event3 = { Name: 'Event3', Date: '14/06/2014' };
-
-    events.push(event1);
-    events.push(event2);
-    events.push(event3);
+    [{
+        "attendees": [
+          [
+              { "id": 1 },
+              { "trackLocation": true },
+              { "checkedin": false },
+              { "name": "Angel Hack" }
+          ],
+         [
+          { "id": 2 },
+          { "trackLocation": true },
+          { "checkedin": false },
+          { "name": "Ninja Hack" }
+         ]
+        ],
+        "name": "Angel Hack",
+        "note": "this is my description",
+        "eventend": "14 June 2014",
+        "status": "active",
+        "longitude": 64.079526,
+        "latitude": -13.862221,
+        "address": "Google Campus, London"
+    },
+    {
+        "attendees": [
+          [
+              { "id": 1 },
+              { "trackLocation": true },
+              { "checkedin": true },
+              { "name": "Brazil" }
+          ],
+          [
+              { "id": 2 },
+              { "trackLocation": true },
+              { "checkedin": true },
+              { "name": "Croatia" }
+          ]
+        ],
+        "name": "World Cup - Brazil vs Croatia",
+        "note": "We love World Cup",
+        "eventend": "12 June 2014",
+        "status": "active",
+        "longitude": 64.079526,
+        "latitude": -13.862221,
+        "address": "Google Campus, London"
+    },
+    {
+        "attendees": [
+          [
+              { "id": 1 },
+              { "trackLocation": true },
+              { "checkedin": true },
+              { "name": "Brazil" }
+          ],
+          [
+              { "id": 2 },
+              { "trackLocation": true },
+              { "checkedin": true },
+              { "name": "Croatia" }
+          ]
+        ],
+        "name": "World Cup - France vs Brazil",
+        "note": "We love World Cup",
+        "eventend": "12 June 2014",
+        "status": "active",
+        "longitude": 64.079526,
+        "latitude": -13.862221,
+        "address": "Google Campus, London"
+    },
+    {
+        "attendees": [
+          [
+              { "id": 1 },
+              { "trackLocation": true },
+              { "checkedin": true },
+              { "name": "Brazil" }
+          ],
+          [
+              { "id": 2 },
+              { "trackLocation": true },
+              { "checkedin": true },
+              { "name": "Croatia" }
+          ]
+        ],
+        "name": "World Cup - Brazil vs UK",
+        "note": "We love World Cup",
+        "eventend": "12 June 2014",
+        "status": "active",
+        "longitude": 64.079526,
+        "latitude": -13.862221,
+        "address": "Google Campus, London"
+    }
+    ];
 
     callback(events);
 };

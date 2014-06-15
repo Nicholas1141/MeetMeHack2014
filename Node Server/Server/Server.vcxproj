@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="api.js" />
     <None Include="groupEvent.js" />
     <None Include="server.js" />
     <None Include="srv_api.js" />
