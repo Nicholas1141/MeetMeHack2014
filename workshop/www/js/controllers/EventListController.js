@@ -80,8 +80,6 @@ angular.module('peopleTracker.controllers', [])
 
         $scope.onClick = function () {
 
-          //  $scope.lat += 0.1;
-          //  $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
         };
         PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
 
@@ -113,42 +111,24 @@ angular.module('peopleTracker.controllers', [])
             });
         }
         var geolocationError = function(error){
-            alert(error);
+            console.log(error);
         }
-}) .controller('AddPersonCtrl', function($scope) {
-$scope.addPerson = function(){
-    PubNub.ngSubscribe({ channel: $routeParams.eventId, message: function() {
+})
+ .controller('AddPersonCtrl', function($scope, $routeParams, PubNub, $location) {
 
-        $scope.$on(PubNub.ngMsgEv($routeParams.eventId), function (event, payload) {
-            console.log($routeParams.eventId );
-            $scope.$apply(function () {
-                $scope.marker = {
-                    id: payload.message.subscriber,
-                    lat: payload.message.latitude,
-                    long: payload.message.longitude };
-                publish();
-            });
-        });
-    }});
+       $scope.userName = "";
+       $scope.password = "";
 
-    var publish = function() {
-        navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
-    };
+        var go = function(){
+            console.log('/events');
+            $scope.slide = 'slide-left';
+            $location.url('/events/'+$scope.userName);
+        }
 
-    var geolocationSuccess = function(position){
 
-        PubNub.ngPublish({
-            channel: $routeParams.eventId ,
-            message: {
-                "subscriber" : "subscriberA",
-                "latitude": position.coords.latitude,
-                "longitude": position.coords.longitude
-            }
-        });
-    }
-    var geolocationError = function(error){
-        alert(error);
-    }
+        $scope.addPerson = function(){
+        go();
+
 }
     });
 
