@@ -21,7 +21,7 @@
                    ng-click="changeTimeFrame('Later')">Later</label>
         </div>
         <div style="text-align: right">
-            <input ng-click="AddEvent" value="Add Event" type="button">
+            <input ng-click="go('/createEvent')" value="Add Event" type="button"></input>
         </div>
         <div ng-repeat="event in events" class="list-group-item">
             <div style="display: inline-block; vertical-align:middle ; width: 100%">

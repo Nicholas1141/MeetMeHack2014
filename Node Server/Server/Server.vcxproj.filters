@@ -16,5 +16,8 @@
     <None Include="srv_api.js">
       <Filter>JS</Filter>
     </None>
+    <None Include="api.js">
+      <Filter>JS</Filter>
+    </None>
   </ItemGroup>
 </Project>

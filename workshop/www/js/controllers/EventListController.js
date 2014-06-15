@@ -124,7 +124,26 @@ angular.module('peopleTracker.controllers', [])
         go();
 
 }
-    });
+    }) //AddPersonCtrl
+.controller('AddEventCtrl', function($scope, $routeParams, PubNub, $location, Events) {
+
+       $scope.eventName = "";
+       $scope.address = "";
+$scope.addEvent = function(){
+
+   
+  Events.post({ name: $scope.eventName, address: $scope.address });
+
+var go = function(){
+            console.log('/events');
+            $scope.slide = 'slide-left';
+            $location.url('/events');
+        }
+   go();
+
+};
+}); //AddEventCtrl
+
 
 
 

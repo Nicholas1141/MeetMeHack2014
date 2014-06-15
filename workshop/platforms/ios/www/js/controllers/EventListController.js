@@ -145,12 +145,14 @@ $scope.addPerson = function(){
                 "longitude": position.coords.longitude
             }
         });
-    }
+    };
     var geolocationError = function(error){
         alert(error);
-    }
-}
-    });
+    };
+  }
+}) //AddPersonCtrl
+.controller('AddEventCtrl', function($scope) {
+}); //AddEventCtrl
 
 
 
