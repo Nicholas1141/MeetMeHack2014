@@ -6,6 +6,7 @@
 -C
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src
 bar-descriptor.xml
+/Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/.DS_Store
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/config.xml
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/cordova.js
 /Users/leefsmp/Desktop/MeetMeHack2014/workshop/platforms/blackberry10/build/src/cordova_plugins.js
