@@ -43,25 +43,24 @@ angular.module('peopleTracker.controllers', [])
               });
       }
                                        
-                                       $scope.subscribe = function(eventName) {
-                                       
-                                       PubNub.ngSubscribe({ channel: eventName});
-                                       
-                                       $rootScope.$on(PubNub.ngMsgEv(eventName), function (event, payload) {
-                                                      
-                                                      console.log(payload.message.subscriber + " : " +  payload.message.latitude + " : " + payload.message.longitude);
-                                                      
-                                                      $scope.marker = {
-                                                      id: payload.message.subscriber ,
-                                                      lat: payload.message.latitude,
-                                                      long: payload.message.longitude };
-                                                      
-                                                      });
-                                       
-                                       $scope.selectedEvent = eventName;
-                                       publish();
-                                       //  setInterval( $scope.publish(), 2000);
-                                       }
+           $scope.subscribe = function(eventName) {
+          PubNub.ngSubscribe({ channel: eventName});
+
+           $rootScope.$on(PubNub.ngMsgEv(eventName), function (event, payload) {
+
+                          console.log(payload.message.subscriber + " : " +  payload.message.latitude + " : " + payload.message.longitude);
+
+//                          $scope.marker = {
+//                          id: payload.message.subscriber ,
+//                          lat: payload.message.latitude,
+//                          long: payload.message.longitude };
+
+                          });
+
+           $scope.selectedEvent = eventName;
+           publish();
+           //  setInterval( $scope.publish(), 2000);
+           }
 
 
 
@@ -87,12 +86,43 @@ angular.module('peopleTracker.controllers', [])
 
         $scope.onClick = function () {
 
-            $scope.lat += 0.1;
-            $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
+          //  $scope.lat += 0.1;
+          //  $scope.marker = { id: 1, lat: $scope.lat, long: -3.32910 };
         };
-                
+        PubNub.ngSubscribe({ channel: "Angel Hack", message: function() {
 
-    });
+            $scope.$on(PubNub.ngMsgEv("Angel Hack"), function (event, payload) {
+                console.log("payload from map" + payload );
+                $scope.$apply(function () {
+                    $scope.marker = {
+
+                        id: payload.message.subscriber,
+                        lat: payload.message.latitude,
+                        long: payload.message.longitude };
+                    publish();
+                });
+            });
+        }});
+
+        var publish = function() {
+            navigator.geolocation.watchPosition(geolocationSuccess, geolocationError);
+        };
+
+        var geolocationSuccess = function(position){
+
+            PubNub.ngPublish({
+                channel: "Angel Hack" ,
+                message: {
+                    "subscriber" : "subscriberA",
+                    "latitude": position.coords.latitude,
+                    "longitude": position.coords.longitude
+                }
+            });
+        }
+        var geolocationError = function(error){
+            alert(error);
+        }
+});
 
 
 
